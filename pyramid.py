@@ -21,15 +21,13 @@ def print_pyramid(height):
         # Print asterisks for the pyramid
         stars = '*' * (2 * i - 1)
         # Select the appropriate text based on the row index
-        text = texts[(i - 1) % len(texts)]
+        buffer = ' ' * (len(texts[1]) + 1)  # Buffer space for text alignment
         if i == 1:
-            print(spaces + stars + " " + texts[2])  # Top of the pyramid
+            print(buffer + spaces + stars + " " + texts[2])  # Top of the pyramid
         elif i == height:
-            print(spaces + stars + " " + texts[1])  # Lower left
-        elif i == height - 1:
-            print(spaces + stars + " " + texts[2])  # Lower right
+            print(texts[1] + ' ' + spaces + stars + ' ' + texts[0]) # Bottom of the pyramid
         else:
-            print(spaces + stars)
+            print(buffer + spaces + '*' + ' ' * (2 * i - 3) + '*')
 
 if __name__ == "__main__":
     try:
